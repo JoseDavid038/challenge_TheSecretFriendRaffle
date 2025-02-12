@@ -1,0 +1,96 @@
+
+const inputFriend = document.querySelector('.js-input');
+const buttonAdd = document.querySelector('.js-button');
+const friendsAdd = document.querySelector('.js-friends-list');
+const deleteButton = document.querySelector('.js-delete-button');
+const winnerChoose = document.querySelector('.js-winner');
+const playButton = document.querySelector('.js-play-button');
+
+
+let friendList = [];
+
+clear();
+
+
+
+buttonAdd.addEventListener('click', () => {
+    addList();
+    renderHtml();
+});
+
+inputFriend.addEventListener('keydown', (event) => {
+    if (event.key === 'Enter'){
+      addList();
+      renderHtml();
+    }
+})
+
+
+deleteButton.addEventListener('click', () => {
+  deleteList();
+  renderHtml();
+});
+
+playButton.addEventListener('click', () => {
+  raffle();
+})
+
+
+
+function addList (){
+
+  if (inputFriend.value){
+    if (friendList.includes(inputFriend.value)){
+      alert('That name has already been entered. Please enter another one.');
+      clear();
+    }else{
+      let friend = inputFriend.value;
+      friendList.push(friend);
+      console.log(friendList);
+      clear();
+    }
+  }else{
+    alert('You should enter a name.');
+    inputFriend.focus();
+  }
+
+}
+
+function raffle(){
+  let number = Math.floor(Math.random()*friendList.length);
+  winnerChoose.innerHTML = `The secret friend raffled is: <span class = "text-winner">${friendList[number]}</span> <img src="assets/amigo-secreto.png" class="img-winner">`;
+}
+
+function renderHtml(){
+  let html = '';
+  for (let name in friendList){
+    html += `<p class = "text-list">${friendList[name]}</p>`;
+  }
+
+  friendsAdd.innerHTML = html;
+}
+
+
+function clear(){
+  inputFriend.value = '';
+  inputFriend.focus();
+}
+
+function deleteList(){
+
+  friendList = [];
+  clear();
+  winnerChoose.innerHTML = '';
+
+}
+
+
+
+
+
+
+
+
+
+
+
