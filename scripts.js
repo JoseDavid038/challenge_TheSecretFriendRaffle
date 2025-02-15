@@ -58,7 +58,14 @@ function addList (){
 
 function raffle(){
   let number = Math.floor(Math.random()*friendList.length);
-  winnerChoose.innerHTML = `The secret friend raffled is: <span class = "text-winner">${friendList[number]}</span> <img src="assets/amigo-secreto.png" class="img-winner">`;
+
+  if (friendList[number] === undefined){
+    alert('List of friends empty .You should enter a name.');
+    inputFriend.focus();
+  }else{
+    winnerChoose.innerHTML = `The secret friend raffled is: <span class = "text-winner">${friendList[number]}</span> <img src="assets/amigo-secreto.png" class="img-winner">`;
+  }
+  
 }
 
 function renderHtml(){
