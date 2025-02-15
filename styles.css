@@ -44,6 +44,14 @@ main{
   overflow-y: auto;
 }
 
+.title-list{
+  background-color: #EF5A21;
+  color: white;
+  margin-top: 0.1px;
+  width: 100%;
+
+}
+
 .logo, .img-winner{
   width: 100px;
 }
@@ -127,6 +135,7 @@ p{
 .icon-trash{
   width: 20px;
   margin-bottom: 10px;
+  cursor: pointer;
 }
 
 .div-winner{
@@ -159,8 +168,10 @@ p{
   }
 
   .right-side{
-    height: 100px;
-    padding: 20px;
+    height: 110px;
+    width: 90%;
+    padding: 10px;
+    padding-top: 2px;
   }
 
   .bottom-side{
@@ -173,6 +184,12 @@ p{
 
   h1{
     font-size: 25px;
+  }
+
+  .title-list{
+    margin-top: 0.01px;
+    font-size: 18px;
+    width: 200%;
   }
 
   .logo{
