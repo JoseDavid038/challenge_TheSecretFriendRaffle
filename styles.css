@@ -5,6 +5,7 @@ body{
   font-family: arial;
 }
 
+
 body{
   background-color: #4B6AF7;
 }
@@ -35,6 +36,7 @@ main{
 .right-side{
   display: flex;
   flex-direction: column;
+  align-items: center;
   background-color: #FBFBEB;
   border-radius: 20px;
   width: 400px;
@@ -91,6 +93,11 @@ input{
 p{
   font-size: 1.25rem;
   font-weight: bold;
+  margin: 0;
+}
+
+.guide-text{
+  margin-bottom: 15px;
 }
 
 .text-raffle{
@@ -103,8 +110,23 @@ p{
   font-weight: bolder;
 }
 
+.friend-list{
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  column-gap: 100px;
+  align-items: center;
+  margin-top: 15px;
+}
+
 .text-list{
   color: black;
+  display: flex;
+  margin-bottom: 10px;
+}
+
+.icon-trash{
+  width: 20px;
+  margin-bottom: 10px;
 }
 
 .div-winner{
@@ -127,6 +149,7 @@ p{
 
   .left-side, .right-side {
     width: 100%;
+    height: auto;
   }
 
   .input-button{
@@ -136,7 +159,7 @@ p{
   }
 
   .right-side{
-    height: 120px;
+    height: 100px;
     padding: 20px;
   }
 

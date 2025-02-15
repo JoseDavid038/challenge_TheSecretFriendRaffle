@@ -71,7 +71,7 @@ function raffle(){
 function renderHtml(){
   let html = '';
   for (let name in friendList){
-    html += `<p class = "text-list">${friendList[name]}</p>`;
+    html += `<p class = "text-list">${friendList[name]} </p> <img src= "assets/icon-trash.svg" class="icon-trash"> `;
   }
 
   friendsAdd.innerHTML = html;
