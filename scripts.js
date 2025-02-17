@@ -7,6 +7,7 @@ const winnerChoose = document.querySelector('.js-winner');
 const playButton = document.querySelector('.js-play-button');
 
 
+
 let friendList = [];
 
 clear();
@@ -33,7 +34,7 @@ deleteButton.addEventListener('click', () => {
 
 playButton.addEventListener('click', () => {
   raffle();
-})
+});
 
 
 
@@ -56,6 +57,11 @@ function addList (){
 
 }
 
+function deleteFriendList(event){
+  friendList.splice(event,1);
+  renderHtml();
+}
+
 function raffle(){
   let number = Math.floor(Math.random()*friendList.length);
 
@@ -64,18 +70,26 @@ function raffle(){
     inputFriend.focus();
   }else{
     winnerChoose.innerHTML = `The secret friend raffled is: <span class = "text-winner">${friendList[number]}</span> <img src="assets/amigo-secreto.png" class="img-winner">`;
-  }
+  };
   
-}
+};
+
 
 function renderHtml(){
   let html = '';
   for (let name in friendList){
-    html += `<p class = "text-list">${friendList[name]} </p> <img src= "assets/icon-trash.svg" class="icon-trash"> `;
+    html += `<p class = "text-list">${friendList[name]} </p> <img src= "assets/icon-trash.svg" class="icon-trash js-icon-trash"> `;
   }
-
   friendsAdd.innerHTML = html;
-}
+
+  document.querySelectorAll('.js-icon-trash').forEach((buttonDelete, index) => {
+    buttonDelete.addEventListener('click', () => {
+      deleteFriendList(index);
+  
+    });
+  });
+  
+};
 
 
 function clear(){
@@ -90,6 +104,9 @@ function deleteList(){
   winnerChoose.innerHTML = '';
 
 }
+
+
+
 
 
 
